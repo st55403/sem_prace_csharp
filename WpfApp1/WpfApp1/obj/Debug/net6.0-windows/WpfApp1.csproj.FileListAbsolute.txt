@@ -37,3 +37,5 @@ C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\obj\Debug\net6.0-
 C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\Views\RocketsList.baml
 C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\Views\ShipDetails.baml
 C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\Views\ShipsList.baml
+C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\App.baml

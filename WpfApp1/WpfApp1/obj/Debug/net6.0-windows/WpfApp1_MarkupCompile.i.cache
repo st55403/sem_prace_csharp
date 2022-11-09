@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\App.xaml
-11407045341
+101773484611
 
-9-1109474095
+181811322156
 194-2004305220
-MainWindow.xaml;
+MainWindow.xaml;Views\AddLaunch.xaml;Views\AddRocket.xaml;Views\AddShip.xaml;Views\LaunchDetails.xaml;Views\LaunchesList.xaml;Views\RocketDetails.xaml;Views\RocketsList.xaml;Views\ShipDetails.xaml;Views\ShipsList.xaml;
 
 False
 

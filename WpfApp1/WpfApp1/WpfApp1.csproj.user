@@ -7,7 +7,63 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\AddLaunch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddRocket.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddShip.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LaunchDetails.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LaunchesList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RocketDetails.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RocketsList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ShipDetails.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ShipsList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddLaunch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddRocket.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddShip.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LaunchDetails.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LaunchesList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RocketDetails.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RocketsList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ShipDetails.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ShipsList.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

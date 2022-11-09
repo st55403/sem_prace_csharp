@@ -25,7 +25,7 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Name" />
-            <TextBox Grid.Row="1" Margin="0 5 0 0" Text="" />
+            <TextBox Grid.Row="1" Margin="0 5 0 0" Text="{Binding Name}" />
         </Grid>
 
         <Grid Grid.Row="2" Margin="0 10 0 0">
@@ -38,15 +38,15 @@
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Engines number" />
-            <TextBox Grid.Row="1" Grid.Column="0" Text="" Margin="0 5 0 0"/>
+            <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding EngineNumber}" Margin="0 5 0 0"/>
             
             <TextBlock Grid.Row="0" Grid.Column="1" Text="Engines type" Margin="5 0 0 0"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="" Margin="0 5 0 0"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding EngineType}" Margin="0 5 0 0"/>
         </Grid>
 
         <StackPanel Grid.Row="3" Margin="0 25 0 0" Orientation="Horizontal">
-            <Button Content="Add"/>
-            <Button Content="Cancel" Margin="5 0 0 0"/>
+            <Button Content="Add" Command="{Binding AddCommand}"/>
+            <Button Content="Cancel" Command="{Binding CancelCommand}" Margin="5 0 0 0"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Xps;
 using WpfApp1.Models;
+using WpfApp1.Services;
 using WpfApp1.ViewModels;
 
 namespace WpfApp1.Commands
@@ -14,12 +15,13 @@ namespace WpfApp1.Commands
     {
         private readonly AddRocketViewModel _addRocketViewModel;
         private readonly Company _company;
+        private readonly NavigationService _rocketListViewNavigationService;
 
-        public AddRocketCommand(AddRocketViewModel addRocketViewModel, Company company)
+        public AddRocketCommand(AddRocketViewModel addRocketViewModel, Company company, NavigationService rocketListViewNavigationService)
         {
             _addRocketViewModel = addRocketViewModel;
             _company = company;
-
+            this._rocketListViewNavigationService = rocketListViewNavigationService;
             _addRocketViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
 
@@ -36,6 +38,7 @@ namespace WpfApp1.Commands
                 "generate random id",
                 new Engine(_addRocketViewModel.EngineNumber, _addRocketViewModel.EngineType));
             _company.AddRocket(rocket);
+            _rocketListViewNavigationService.Navigate();
         }
 
         private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)

@@ -5,10 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:views="clr-namespace:WpfApp1.Views"
+        xmlns:viewModels="clr-namespace:WpfApp1.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" FontSize="14">
     <Grid Margin="20 10" MaxWidth="600">
-        <views:RocketsList DataContext="{Binding CurrentViewModel}" />
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewModels:AddRocketViewModel}">
+                <views:AddRocket />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:RocketListViewModel}">
+                <views:RocketsList />
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}" />
     </Grid>
 </Window>
  

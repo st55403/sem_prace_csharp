@@ -7,26 +7,37 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfApp1.Commands;
 using WpfApp1.Models;
+using WpfApp1.Services;
+using WpfApp1.Stores;
 
 namespace WpfApp1.ViewModels
 {
     class RocketListViewModel : ViewModelBase
     {
+        private Company _company;
         private ObservableCollection<RocketViewModel> _rockets;   
 
         public IEnumerable<RocketViewModel> Rockets => _rockets;
         public ICommand AddRocketCommand { get; }
 
-        public RocketListViewModel()
+        public RocketListViewModel(Company company, NavigationService addRocketNavigationService)
         {
+            _company = company;
             _rockets= new ObservableCollection<RocketViewModel>();
 
-            AddRocketCommand = new NavigateCommandToAddRocket();
+            AddRocketCommand = new NavigateCommandToAddRocket(addRocketNavigationService);
 
-            _rockets.Add(new RocketViewModel(new Rocket("Falcone 1", "1", new Engine(1, "Single"))));
-            _rockets.Add(new RocketViewModel(new Rocket("Falcone 2", "1", new Engine(1, "Single"))));
-            _rockets.Add(new RocketViewModel(new Rocket("Falcone 3", "1", new Engine(1, "Single"))));
-            _rockets.Add(new RocketViewModel(new Rocket("Falcone 4", "1", new Engine(1, "Single"))));
+            UpdateRockets();
+        }
+
+        private void UpdateRockets()
+        {
+            _rockets.Clear();
+            foreach (Rocket rocket in _company.GetAllRockets())
+            {
+                RocketViewModel rocketViewModel = new RocketViewModel(rocket);
+                _rockets.Add(rocketViewModel);
+            }
         }
     }
 }

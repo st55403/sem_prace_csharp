@@ -4,17 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WpfApp1.Models;
+using WpfApp1.Stores;
 
 namespace WpfApp1.ViewModels
 {
     class MainViewModel : ViewModelBase
     {
-        public ViewModelBase CurrentViewModel { get; set; }
+        private NavigationStore _navigationStore;
+        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
-        public MainViewModel(Company company)
+        public MainViewModel(NavigationStore navigationStore)
         {
-            CurrentViewModel = new RocketListViewModel();
-            //CurrentViewModel = new AddRocketViewModel(company);
+            _navigationStore = navigationStore;
+
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+        }
+
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfApp1.Commands;
 using WpfApp1.Models;
+using WpfApp1.Services;
+using WpfApp1.Stores;
 
 namespace WpfApp1.ViewModels
 {
@@ -57,10 +59,10 @@ namespace WpfApp1.ViewModels
 
         public ICommand CancelCommand { get; }
 
-        public AddRocketViewModel(Company company)
+        public AddRocketViewModel(Company company, NavigationService addRocketViewNavigationService)
         {
-            AddCommand = new AddRocketCommand(this, company);
-            CancelCommand = new CancelAddRocketCommand();
+            AddCommand = new AddRocketCommand(this, company, addRocketViewNavigationService);
+            CancelCommand = new NavigateCommandToAddRocket(addRocketViewNavigationService);
         }
     }
 }

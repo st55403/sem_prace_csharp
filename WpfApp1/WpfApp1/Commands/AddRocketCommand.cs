@@ -28,7 +28,10 @@ namespace WpfApp1.Commands
         // TODO OG make here checks for other fields
         public override bool CanExecute(object? parameter)
         {
-            return !string.IsNullOrEmpty(_addRocketViewModel.Name) && base.CanExecute(parameter);
+            return !string.IsNullOrEmpty(_addRocketViewModel.Name) && 
+                !string.IsNullOrEmpty(_addRocketViewModel.EngineType) &&
+                _addRocketViewModel.EngineNumber >= 1 &&
+                base.CanExecute(parameter);
         }
 
         public override void Execute(object? parameter)
@@ -44,7 +47,9 @@ namespace WpfApp1.Commands
         private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             // TODO OG add here || other property check
-            if (e.PropertyName == nameof(AddRocketViewModel.Name))
+            if (e.PropertyName == nameof(AddRocketViewModel.Name) || 
+                e.PropertyName == nameof(AddRocketViewModel.EngineType) ||
+                e.PropertyName == nameof(AddRocketViewModel.EngineNumber))
             {
                 OnCanExecuteChanged();
             }

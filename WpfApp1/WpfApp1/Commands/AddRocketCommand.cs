@@ -24,8 +24,6 @@ namespace WpfApp1.Commands
             this._rocketListViewNavigationService = rocketListViewNavigationService;
             _addRocketViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
-
-        // TODO OG make here checks for other fields
         public override bool CanExecute(object? parameter)
         {
             return !string.IsNullOrEmpty(_addRocketViewModel.Name) && 
@@ -46,7 +44,6 @@ namespace WpfApp1.Commands
 
         private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            // TODO OG add here || other property check
             if (e.PropertyName == nameof(AddRocketViewModel.Name) || 
                 e.PropertyName == nameof(AddRocketViewModel.EngineType) ||
                 e.PropertyName == nameof(AddRocketViewModel.EngineNumber))

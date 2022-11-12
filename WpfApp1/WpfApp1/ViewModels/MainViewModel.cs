@@ -8,5 +8,11 @@ namespace WpfApp1.ViewModels
 {
     class MainViewModel : ViewModelBase
     {
+        public ViewModelBase CurrentViewModel { get; set; }
+
+        public MainViewModel()
+        {
+            CurrentViewModel = new RocketListViewModel();
+        }
     }
 }

@@ -12,6 +12,12 @@ namespace WpfApp1.Models
         public string RocketID { get; set; }
         public Engine engine { get; set; }
 
+        public Rocket(string rocketName, string rocketID, Engine engine)
+        {
+            RocketName = rocketName;
+            RocketID = rocketID;
+            this.engine = engine;
+        }
     }
 
     public class Engine

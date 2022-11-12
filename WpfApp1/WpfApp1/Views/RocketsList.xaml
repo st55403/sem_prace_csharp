@@ -19,40 +19,37 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" FontSize="24" Text="All Rockets" />
-            <Button Grid.Column="1" Content="Add Rocket" />
+            <Button Grid.Column="1" Content="Add Rocket" Command="{Binding AddRocketCommand}"/>
         </Grid>
 
-        <ListView Grid.Row="1" Margin="0 25 0 0">
-            <ListViewItem />
-            <ListViewItem />
-            <ListViewItem />
+        <ListView Grid.Row="1" Margin="0 25 0 0" ItemsSource="{Binding Rockets}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Rocket Name">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Falcon" Padding="20 0 20 0"/>
+                                <TextBlock Text="{Binding RocketName}" Padding="20 0 20 0"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Rocket ID">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="1"  Padding="20 0 20 0"/>
+                                <TextBlock Text="{Binding RocketID}"  Padding="20 0 20 0"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Engine number">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="4" Padding="20 0 20 0" />
+                                <TextBlock Text="{Binding EngineNumber}" Padding="20 0 20 0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Engine type">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="single" Padding="20 0 20 0" />
+                                <TextBlock Text="{Binding EngineType}" Padding="20 0 20 0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WpfApp1.Commands;
 using WpfApp1.Models;
 
 namespace WpfApp1.ViewModels
@@ -19,6 +20,8 @@ namespace WpfApp1.ViewModels
         public RocketListViewModel()
         {
             _rockets= new ObservableCollection<RocketViewModel>();
+
+            AddRocketCommand = new NavigateCommandToAddRocket();
 
             _rockets.Add(new RocketViewModel(new Rocket("Falcone 1", "1", new Engine(1, "Single"))));
             _rockets.Add(new RocketViewModel(new Rocket("Falcone 2", "1", new Engine(1, "Single"))));

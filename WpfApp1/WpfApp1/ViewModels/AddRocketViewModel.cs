@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WpfApp1.Commands;
+using WpfApp1.Models;
 
 namespace WpfApp1.ViewModels
 {
@@ -55,9 +57,10 @@ namespace WpfApp1.ViewModels
 
         public ICommand CancelCommand { get; }
 
-        public AddRocketViewModel()
+        public AddRocketViewModel(Company company)
         {
-
+            AddCommand = new AddRocketCommand(this, company);
+            CancelCommand = new CancelAddRocketCommand();
         }
     }
 }

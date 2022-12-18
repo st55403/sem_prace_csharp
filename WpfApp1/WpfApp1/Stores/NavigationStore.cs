@@ -7,7 +7,7 @@ using WpfApp1.ViewModels;
 
 namespace WpfApp1.Stores
 {
-    class NavigationStore
+    public class NavigationStore
     {
         private ViewModelBase _currentViewModel;
 

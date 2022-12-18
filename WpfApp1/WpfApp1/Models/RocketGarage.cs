@@ -3,26 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp1.Services.RocketCreators;
+using WpfApp1.Services.RocketProviders;
 
 namespace WpfApp1.Models
 {
-    class RocketGarage
+    public class RocketGarage
     {
-        private readonly List<Rocket> _rockets;
+        private readonly IRocketProvider rocketProvider;
+        private readonly IRocketCreator rocketCreator;
 
-        public RocketGarage()
+        public RocketGarage(IRocketProvider rocketProvider, IRocketCreator rocketCreator)
         {
-            _rockets = new List<Rocket>();
+            this.rocketProvider = rocketProvider;
+            this.rocketCreator = rocketCreator;
         }
 
-        public List<Rocket> GetAllRockets()
+        public async Task<IEnumerable<Rocket>> GetAllRockets()
         {
-            return _rockets;
+            return await rocketProvider.GetAllRockets();
         }
 
-        public void AddRocket(Rocket rocket)
+        public async Task AddRocket(Rocket rocket)
         {
-            _rockets.Add(rocket);
+            await rocketCreator.CreateRocket(rocket);
         }
     }
 }

@@ -12,28 +12,35 @@ using WpfApp1.Stores;
 
 namespace WpfApp1.ViewModels
 {
-    class RocketListViewModel : ViewModelBase
+    public class RocketListViewModel : ViewModelBase
     {
-        private Company _company;
         private ObservableCollection<RocketViewModel> _rockets;   
 
         public IEnumerable<RocketViewModel> Rockets => _rockets;
+
+        public ICommand LoadRocketsCommand { get;}
         public ICommand AddRocketCommand { get; }
 
         public RocketListViewModel(Company company, NavigationService addRocketNavigationService)
         {
-            _company = company;
             _rockets= new ObservableCollection<RocketViewModel>();
 
-            AddRocketCommand = new NavigateCommandToAddRocket(addRocketNavigationService);
+            LoadRocketsCommand = new LoadRocketsCommand(this, company);
 
-            UpdateRockets();
+            AddRocketCommand = new NavigateCommandToAddRocket(addRocketNavigationService);;
         }
 
-        private void UpdateRockets()
+        public static RocketListViewModel LoadViewModel(Company company, NavigationService addRocketNavigationService)
+        {
+            RocketListViewModel viewModel = new RocketListViewModel(company, addRocketNavigationService);
+            viewModel.LoadRocketsCommand.Execute(null);
+            return viewModel;
+        }
+
+        public void UpdateRockets(IEnumerable<Rocket> rockets)
         {
             _rockets.Clear();
-            foreach (Rocket rocket in _company.GetAllRockets())
+            foreach (Rocket rocket in rockets)
             {
                 RocketViewModel rocketViewModel = new RocketViewModel(rocket);
                 _rockets.Add(rocketViewModel);

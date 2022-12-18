@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-    class Company
+    public class Company
     {
         private readonly RocketGarage _rocketGarage;
 
         public string Name { get; }
 
-        public Company(string name)
+        public Company(string name, RocketGarage rocketGarage)
         {
             Name = name;
 
-            _rocketGarage = new RocketGarage();
+            _rocketGarage = rocketGarage;
         }
 
-        public List<Rocket> GetAllRockets()
+        public async Task<IEnumerable<Rocket>> GetAllRockets()
         {
-            return _rocketGarage.GetAllRockets();
+            return await _rocketGarage.GetAllRockets();
         }
 
-        public void AddRocket(Rocket rocket)
+        public async Task AddRocket(Rocket rocket)
         {
             _rocketGarage.AddRocket(rocket);
         }

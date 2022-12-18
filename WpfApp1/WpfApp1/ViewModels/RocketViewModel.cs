@@ -7,7 +7,7 @@ using WpfApp1.Models;
 
 namespace WpfApp1.ViewModels
 {
-    class RocketViewModel : ViewModelBase
+    public class RocketViewModel : ViewModelBase
     {
         private Rocket _rocket;
 

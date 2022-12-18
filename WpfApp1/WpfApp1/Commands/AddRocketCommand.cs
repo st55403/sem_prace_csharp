@@ -11,7 +11,7 @@ using WpfApp1.ViewModels;
 
 namespace WpfApp1.Commands
 {
-    class AddRocketCommand : CommandBase
+    class AddRocketCommand : AsyncCommandBase
     {
         private readonly AddRocketViewModel _addRocketViewModel;
         private readonly Company _company;
@@ -32,13 +32,14 @@ namespace WpfApp1.Commands
                 base.CanExecute(parameter);
         }
 
-        public override void Execute(object? parameter)
+        public override async Task ExecuteAsync(object? parameter)
         {
+            // todo Og generate a random id
             Rocket rocket = new Rocket(
                 _addRocketViewModel.Name,
                 "generate random id",
                 new Engine(_addRocketViewModel.EngineNumber, _addRocketViewModel.EngineType));
-            _company.AddRocket(rocket);
+            await _company.AddRocket(rocket);
             _rocketListViewNavigationService.Navigate();
         }
 

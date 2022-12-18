@@ -16,10 +16,12 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" FontSize="24" Text="All Rockets" />
-            <Button Grid.Column="1" Content="Add Rocket" Command="{Binding AddRocketCommand}"/>
+            <Button Grid.Column="2" Content="Add Rocket" Command="{Binding AddRocketCommand}"/>
+            <Button Grid.Column="1" Content="Back" Command="{Binding BackCommand}"/>
         </Grid>
 
         <ListView Grid.Row="1" Margin="0 25 0 0" ItemsSource="{Binding Rockets}">

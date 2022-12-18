@@ -16,6 +16,9 @@
     <Compile Update="Views\AddShip.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\CompanyInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LaunchDetails.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\AddShip.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CompanyInfo.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LaunchDetails.xaml">

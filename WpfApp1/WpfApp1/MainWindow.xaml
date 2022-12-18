@@ -10,6 +10,9 @@
         Title="MainWindow" Height="450" Width="800" FontSize="14">
     <Grid Margin="20 10" MaxWidth="600">
         <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewModels:CompanyInfoViewModel}">
+                <views:CompanyInfo />
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewModels:AddRocketViewModel}">
                 <views:AddRocket />
             </DataTemplate>

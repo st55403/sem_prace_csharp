@@ -43,7 +43,8 @@ namespace WpfApp1
             {
                 dbContext.Database.Migrate();
             }
-            _navigationStore.CurrentViewModel = CreateRocketListViewModel();
+            //_navigationStore.CurrentViewModel = CreateRocketListViewModel();
+            _navigationStore.CurrentViewModel = CreateCompanyInfoViewModel();
             MainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel(_navigationStore)
@@ -53,6 +54,25 @@ namespace WpfApp1
             base.OnStartup(e);
         }
 
+        private CompanyInfoViewModel CreateCompanyInfoViewModel()
+        {
+            return new CompanyInfoViewModel(
+                _company, 
+                new NavigationService(_navigationStore, CreateRocketListViewModel),
+                new NavigationService(_navigationStore, CreateLaunchesListViewModel),
+                new NavigationService(_navigationStore, CreateShipsListViewModel));
+        }
+
+        private LaunchesListViewModel CreateLaunchesListViewModel()
+        {
+            return new LaunchesListViewModel(_company, new NavigationService(_navigationStore, CreateCompanyInfoViewModel));
+        }
+
+        private ShipsListViewModel CreateShipsListViewModel()
+        {
+            return new ShipsListViewModel(_company, new NavigationService(_navigationStore, CreateCompanyInfoViewModel));
+        }
+
         private AddRocketViewModel CreateAddRocketViewModel()
         {
             return new AddRocketViewModel(_company, new NavigationService(_navigationStore, CreateRocketListViewModel));
@@ -60,7 +80,10 @@ namespace WpfApp1
 
         private RocketListViewModel CreateRocketListViewModel()
         {
-            return RocketListViewModel.LoadViewModel(_company, new NavigationService(_navigationStore, CreateAddRocketViewModel));
+            return RocketListViewModel.LoadViewModel(
+                _company, 
+                new NavigationService(_navigationStore, CreateAddRocketViewModel),
+                new NavigationService(_navigationStore, CreateCompanyInfoViewModel));
         }
     }
 }

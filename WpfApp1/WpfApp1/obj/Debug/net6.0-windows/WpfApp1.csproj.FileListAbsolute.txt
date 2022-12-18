@@ -86,3 +86,5 @@ C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\bin\Debug\net6.0-
 C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\bin\Debug\net6.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\WpfApp1.csproj.CopyComplete
+C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\Views\CompanyInfo.g.cs
+C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\Views\CompanyInfo.baml

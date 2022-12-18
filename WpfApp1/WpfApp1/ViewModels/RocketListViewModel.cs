@@ -20,19 +20,23 @@ namespace WpfApp1.ViewModels
 
         public ICommand LoadRocketsCommand { get;}
         public ICommand AddRocketCommand { get; }
+        public ICommand BackCommand { get; }
 
-        public RocketListViewModel(Company company, NavigationService addRocketNavigationService)
+        public RocketListViewModel(Company company, NavigationService addRocketNavigationService, NavigationService navigateToCompanyInfo)
         {
             _rockets= new ObservableCollection<RocketViewModel>();
 
             LoadRocketsCommand = new LoadRocketsCommand(this, company);
 
-            AddRocketCommand = new NavigateCommandToAddRocket(addRocketNavigationService);;
+            AddRocketCommand = new NavigateCommandToAddRocket(addRocketNavigationService);
+
+            BackCommand = new NavigateCommandToCompanyInfo(navigateToCompanyInfo);
+
         }
 
-        public static RocketListViewModel LoadViewModel(Company company, NavigationService addRocketNavigationService)
+        public static RocketListViewModel LoadViewModel(Company company, NavigationService addRocketNavigationService, NavigationService navigateToCompanyInfo)
         {
-            RocketListViewModel viewModel = new RocketListViewModel(company, addRocketNavigationService);
+            RocketListViewModel viewModel = new RocketListViewModel(company, addRocketNavigationService, navigateToCompanyInfo);
             viewModel.LoadRocketsCommand.Execute(null);
             return viewModel;
         }

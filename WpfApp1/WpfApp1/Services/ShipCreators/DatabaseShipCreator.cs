@@ -22,7 +22,7 @@ namespace WpfApp1.Services.ShipCreators
         {
             using (SpaceXDbContext context = spaceXDbContextFactory.CreateDbContext())
             {
-                ShipDTO shipDTO = new ShipDTO() { ID = ship.ID, HomePort = ship.HomePort, YearOfBuild = ship.YearOfBuild, Status = ship.Status, Mission = ship.Mission };
+                ShipDTO shipDTO = new ShipDTO() { ShipId = ship.ShipId, HomePort = ship.HomePort, YearOfBuild = ship.YearOfBuild, Status = ship.Status, Mission = ship.Mission };
 
                 context.Ships.Add(shipDTO);
                 await context.SaveChangesAsync();

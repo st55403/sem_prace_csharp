@@ -11,7 +11,7 @@ namespace WpfApp1.DTOs
     {
         [Key]
         public Guid Id { get; set; }
-        public string ID { get; set; }
+        public string ShipId { get; set; }
         public string HomePort { get; set; }
         public string YearOfBuild { get; set; }
         public string Status { get; set; }

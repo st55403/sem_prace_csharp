@@ -24,7 +24,7 @@ namespace WpfApp1.Services.ShipProviders
             using (SpaceXDbContext context = spaceXDbContextFactory.CreateDbContext())
             {
                 IEnumerable<ShipDTO> shipDTO = await context.Ships.ToListAsync();
-                return shipDTO.Select(s => new Ship(s.ID, s.HomePort, s.YearOfBuild, s.Status, s.Mission));
+                return shipDTO.Select(s => new Ship(s.ShipId, s.HomePort, s.YearOfBuild, s.Status, s.Mission));
             }
         }
     }

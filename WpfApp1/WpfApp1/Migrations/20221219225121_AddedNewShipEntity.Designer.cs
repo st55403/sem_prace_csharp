@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WpfApp1.DbContexts;
 
@@ -10,9 +11,11 @@ using WpfApp1.DbContexts;
 namespace WpfApp1.Migrations
 {
     [DbContext(typeof(SpaceXDbContext))]
-    partial class SpaceXDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221219225121_AddedNewShipEntity")]
+    partial class AddedNewShipEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.1");

@@ -16,5 +16,7 @@ namespace WpfApp1.DbContexts
         }
 
         public DbSet<RocketDTO> Rockets { get; set; }
+
+        public DbSet<ShipDTO> Ships { get; set; }
     }
 }

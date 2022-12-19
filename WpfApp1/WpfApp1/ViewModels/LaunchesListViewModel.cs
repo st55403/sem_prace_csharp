@@ -18,12 +18,12 @@ namespace WpfApp1.ViewModels
         public ICommand BackCommand { get; }
         public LaunchesListViewModel(
             Company company, 
-            NavigationService addRocketNavigationService, 
-            NavigationService navigateToCompanyInfo)
+            NavigationService navigationServiceToAddLaunch, 
+            NavigationService navigationServiceToCompanyInfo)
         {
-            AddLaunchCommand = new NavigateCommandToAddRocket(addRocketNavigationService);
+            AddLaunchCommand = new NavigateCommandToAddRocket(navigationServiceToAddLaunch);
 
-            BackCommand = new NavigateCommandToCompanyInfo(navigateToCompanyInfo);
+            BackCommand = new NavigateCommandToCompanyInfo(navigationServiceToCompanyInfo);
         }
     }
 }

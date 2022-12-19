@@ -67,8 +67,15 @@ namespace WpfApp1
         {
             return new LaunchesListViewModel(
                 _company,
-                new NavigationService(_navigationStore, CreateAddRocketViewModel), // todo og change this navigation CreateAddLaunchViewModel
+                new NavigationService(_navigationStore, CreateAddLaunchViewModel),
                 new NavigationService(_navigationStore, CreateCompanyInfoViewModel));
+        }
+
+        private AddLaunchViewModel CreateAddLaunchViewModel()
+        {
+            return new AddLaunchViewModel(
+                _company,
+                new NavigationService(_navigationStore, CreateLaunchesListViewModel));
         }
 
         private ShipsListViewModel CreateShipsListViewModel()

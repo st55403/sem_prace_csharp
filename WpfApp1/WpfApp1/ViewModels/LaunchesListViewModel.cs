@@ -22,7 +22,6 @@ namespace WpfApp1.ViewModels
             NavigationService navigationServiceToCompanyInfo)
         {
             AddLaunchCommand = new NavigateCommandToAddRocket(navigationServiceToAddLaunch);
-
             BackCommand = new NavigateCommandToCompanyInfo(navigationServiceToCompanyInfo);
         }
     }

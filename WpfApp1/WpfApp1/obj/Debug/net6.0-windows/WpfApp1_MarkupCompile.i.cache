@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\GOLOVKOV LLC\Desktop\sem_prace_csharp\WpfApp1\WpfApp1\App.xaml
 111968768552
 
-52-1360983784
+55-656934178
 2121864254263
 MainWindow.xaml;Views\AddLaunch.xaml;Views\AddRocket.xaml;Views\AddShip.xaml;Views\CompanyInfo.xaml;Views\LaunchDetails.xaml;Views\LaunchesList.xaml;Views\RocketDetails.xaml;Views\RocketsList.xaml;Views\ShipDetails.xaml;Views\ShipsList.xaml;
 
-True
+False
 

@@ -7,6 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" FontSize="24" Text="All Launches" />
+            <Button Grid.Column="2" Content="Add Launch" Command="{Binding AddLaunchCommand}"/>
+            <Button Grid.Column="1" Content="Back" Command="{Binding BackCommand}"/>
+        </Grid>
     </Grid>
 </UserControl>

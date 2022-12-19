@@ -13,6 +13,9 @@
             <DataTemplate DataType="{x:Type viewModels:CompanyInfoViewModel}">
                 <views:CompanyInfo />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:LaunchesListViewModel}">
+                <views:LaunchesList />
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewModels:AddRocketViewModel}">
                 <views:AddRocket />
             </DataTemplate>

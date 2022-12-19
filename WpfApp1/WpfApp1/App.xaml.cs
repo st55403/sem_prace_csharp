@@ -57,7 +57,7 @@ namespace WpfApp1
         private CompanyInfoViewModel CreateCompanyInfoViewModel()
         {
             return new CompanyInfoViewModel(
-                _company, 
+                _company,
                 new NavigationService(_navigationStore, CreateRocketListViewModel),
                 new NavigationService(_navigationStore, CreateLaunchesListViewModel),
                 new NavigationService(_navigationStore, CreateShipsListViewModel));
@@ -65,17 +65,15 @@ namespace WpfApp1
 
         private LaunchesListViewModel CreateLaunchesListViewModel()
         {
-            return new LaunchesListViewModel(_company, new NavigationService(_navigationStore, CreateCompanyInfoViewModel));
+            return new LaunchesListViewModel(
+                _company,
+                new NavigationService(_navigationStore, CreateAddRocketViewModel),
+                new NavigationService(_navigationStore, CreateCompanyInfoViewModel));
         }
 
         private ShipsListViewModel CreateShipsListViewModel()
         {
             return new ShipsListViewModel(_company, new NavigationService(_navigationStore, CreateCompanyInfoViewModel));
-        }
-
-        private AddRocketViewModel CreateAddRocketViewModel()
-        {
-            return new AddRocketViewModel(_company, new NavigationService(_navigationStore, CreateRocketListViewModel));
         }
 
         private RocketListViewModel CreateRocketListViewModel()
@@ -84,6 +82,11 @@ namespace WpfApp1
                 _company, 
                 new NavigationService(_navigationStore, CreateAddRocketViewModel),
                 new NavigationService(_navigationStore, CreateCompanyInfoViewModel));
+        }
+
+        private AddRocketViewModel CreateAddRocketViewModel()
+        {
+            return new AddRocketViewModel(_company, new NavigationService(_navigationStore, CreateRocketListViewModel));
         }
     }
 }

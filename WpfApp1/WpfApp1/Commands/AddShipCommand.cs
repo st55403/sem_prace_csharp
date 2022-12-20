@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +24,36 @@ namespace WpfApp1.Commands
             this.addShipViewModel = addShipViewModel;
             this.company = company;
             this.navigationServiceToShipsList = navigationServiceToShipsList;
+            addShipViewModel.PropertyChanged += OnViewModelPropertyChange;
+        }
+
+        private void OnViewModelPropertyChange(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(AddShipViewModel.ShipId) ||
+                e.PropertyName == nameof(AddShipViewModel.HomePort) ||
+                e.PropertyName == nameof(AddShipViewModel.Status) ||
+                e.PropertyName == nameof(AddShipViewModel.YearOfBuild))
+            {
+                OnCanExecuteChanged();
+            }
+        }
+
+        public override bool CanExecute(object? parameter)
+        {
+            return !string.IsNullOrEmpty(addShipViewModel.ShipId) &&
+                !string.IsNullOrEmpty(addShipViewModel.HomePort) &&
+                !string.IsNullOrEmpty(addShipViewModel.Status) &&
+                !string.IsNullOrEmpty(addShipViewModel.YearOfBuild) &&
+                base.CanExecute(parameter);
         }
 
         public override async Task ExecuteAsync(object parameter)
         {
+            // todo og consider remove missions filed
+            Ship ship = new Ship(addShipViewModel.ShipId, addShipViewModel.HomePort, addShipViewModel.YearOfBuild, addShipViewModel.Status, "");
+            await company.AddShip(ship);
             navigationServiceToShipsList.Navigate();
         }
+
     }
 }

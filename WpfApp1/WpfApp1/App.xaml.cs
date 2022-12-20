@@ -85,7 +85,7 @@ namespace WpfApp1
 
         private ShipsListViewModel CreateShipsListViewModel()
         {
-            return new ShipsListViewModel(
+            return ShipsListViewModel.LoadViewModel(
                 _company,
                 new NavigationService(_navigationStore, CreateAddShipViewModel),
                 new NavigationService(_navigationStore, CreateCompanyInfoViewModel));

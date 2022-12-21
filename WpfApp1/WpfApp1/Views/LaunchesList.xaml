@@ -23,5 +23,46 @@
             <Button Grid.Column="2" Content="Add Launch" Command="{Binding AddLaunchCommand}"/>
             <Button Grid.Column="1" Content="Back" Command="{Binding BackCommand}"/>
         </Grid>
+        <ListView Grid.Row="1" Margin="0 25 0 0" ItemsSource="{Binding Launches}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Flight Number">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding FlightNumber}" Padding="20 0 20 0" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Launch Date">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding LaunchDateUtc}" Padding="20 0 20 0" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Launch Success">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding LaunchSuccess}" Padding="20 0 20 0" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Mission Name">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding MissionName}" Padding="20 0 20 0" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Upcoming">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Upcoming}" Padding="20 0 20 0" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

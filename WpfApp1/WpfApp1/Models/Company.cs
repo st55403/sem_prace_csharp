@@ -10,15 +10,17 @@ namespace WpfApp1.Models
     {
         private readonly RocketGarage _rocketGarage;
         private readonly ShipPort _shipPort;
+        private readonly LaunchRecords _launchRecords;
 
         public string Name { get; }
 
-        public Company(string name, RocketGarage rocketGarage, ShipPort shipPort)
+        public Company(string name, RocketGarage rocketGarage, ShipPort shipPort, LaunchRecords launchRecords)
         {
             Name = name;
 
             _rocketGarage = rocketGarage;
             _shipPort = shipPort;
+            _launchRecords = launchRecords;
         }
 
         public async Task<IEnumerable<Rocket>> GetAllRockets()
@@ -39,6 +41,16 @@ namespace WpfApp1.Models
         public async Task AddShip(Ship ship)
         {
             _shipPort.AddShip(ship);
+        }
+
+        public async Task<IEnumerable<Launch>> GetAllLaunches()
+        {
+            return await _launchRecords.GetAllLaunches();
+        }
+
+        public async Task AddLaunch(Launch launch)
+        {
+            _launchRecords.AddLaunch(launch);
         }
     }
 }

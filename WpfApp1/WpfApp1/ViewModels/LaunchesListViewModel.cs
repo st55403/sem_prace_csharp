@@ -12,8 +12,12 @@ using WpfApp1.Stores;
 
 namespace WpfApp1.ViewModels
 {
-    class LaunchesListViewModel : ViewModelBase
+    public class LaunchesListViewModel : ViewModelBase
     {
+        private ObservableCollection<LaunchViewModel> _launches;
+
+        public IEnumerable<LaunchViewModel> Launches => _launches;
+        public ICommand LoadLaunchesCommand { get; }
         public ICommand AddLaunchCommand { get; }
         public ICommand BackCommand { get; }
         public LaunchesListViewModel(
@@ -21,8 +25,33 @@ namespace WpfApp1.ViewModels
             NavigationService navigationServiceToAddLaunch, 
             NavigationService navigationServiceToCompanyInfo)
         {
+            _launches = new ObservableCollection<LaunchViewModel>();
+            LoadLaunchesCommand = new LoadLaunchesCommand(this, company);
             AddLaunchCommand = new NavigateCommandToAddRocket(navigationServiceToAddLaunch);
             BackCommand = new NavigateCommandToCompanyInfo(navigationServiceToCompanyInfo);
+        }
+
+        public static LaunchesListViewModel LoadViewModel(
+            Company company,
+            NavigationService navigationServiceToAddLaunch,
+            NavigationService navigationServiceToCompanyInfo)
+        {
+            LaunchesListViewModel viewModel = new LaunchesListViewModel(
+                company, 
+                navigationServiceToAddLaunch,
+                navigationServiceToCompanyInfo);
+            viewModel.LoadLaunchesCommand.Execute(null);
+            return viewModel;
+        }
+
+        public void UpdateLaunches(IEnumerable<Launch> launches)
+        {
+            _launches.Clear();
+            foreach (Launch la in launches)
+            {
+                LaunchViewModel launchViewModel = new LaunchViewModel(la);
+                _launches.Add(launchViewModel);
+            }
         }
     }
 }

@@ -9,6 +9,8 @@ using System.Windows;
 using WpfApp1.DbContexts;
 using WpfApp1.Models;
 using WpfApp1.Services;
+using WpfApp1.Services.LaunchCreators;
+using WpfApp1.Services.LaunchProviders;
 using WpfApp1.Services.RocketCreators;
 using WpfApp1.Services.RocketProviders;
 using WpfApp1.Services.ShipCreators;
@@ -38,7 +40,10 @@ namespace WpfApp1
             IShipProvider shipProvider = new DatabaseShipProvider(_spaceXDbContextFactory);
             IShipCreator shipCreator = new DatabaseShipCreator(_spaceXDbContextFactory);
             ShipPort shipPort = new ShipPort(shipProvider, shipCreator);
-            _company = new Company("SpaceX", rocketGarage, shipPort);
+            ILaunchProvider launchProvider = new DatabaseLaunchProvider(_spaceXDbContextFactory);
+            ILaunchCreator launchCreator = new DatabaseLaunchCreator(_spaceXDbContextFactory);
+            LaunchRecords launchRecords = new LaunchRecords(launchProvider, launchCreator);
+            _company = new Company("SpaceX", rocketGarage, shipPort, launchRecords);
             _navigationStore = new NavigationStore();
         }
 

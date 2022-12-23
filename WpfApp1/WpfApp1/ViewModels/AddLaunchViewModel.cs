@@ -12,6 +12,89 @@ namespace WpfApp1.ViewModels
 {
     class AddLaunchViewModel : ViewModelBase
     {
+        private string details;
+        public string Details
+        {
+            get
+            {
+                return details;
+            }
+            set
+            {
+                details = value;
+                OnPropertyChanged(nameof(Details));
+            }
+        }
+
+        private string flightNumber;
+        public string FlightNumber
+        {
+            get
+            {
+                return flightNumber;
+            }
+            set
+            {
+                flightNumber = value;
+                OnPropertyChanged(nameof(FlightNumber));
+            }
+        }
+
+        private string launchDateUtc;
+        public string LaunchDateUtc 
+        {
+            get
+            {
+                return launchDateUtc;
+            }
+            set
+            {
+                launchDateUtc = value;
+                OnPropertyChanged(nameof(LaunchDateUtc));
+            }
+        }
+
+        private string launchSuccess;
+        public string LaunchSuccess
+        {
+            get
+            {
+                return launchSuccess;
+            }
+            set
+            {
+                launchSuccess = value;
+                OnPropertyChanged(nameof(LaunchSuccess));
+            }
+        }
+
+        private string missionName;
+        public string MissionName
+        {
+            get
+            {
+                return missionName;
+            }
+            set
+            {
+                missionName = value;
+                OnPropertyChanged(nameof(MissionName));
+            }
+        }
+
+        private string upcoming;
+        public string Upcoming
+        {
+            get
+            {
+                return upcoming;
+            }
+            set
+            {
+                upcoming = value;
+                OnPropertyChanged(nameof(Upcoming));
+            }
+        }
         public ICommand AddCommand { get; }
 
         public ICommand CancelCommand { get; }

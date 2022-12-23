@@ -75,7 +75,7 @@ namespace WpfApp1
 
         private LaunchesListViewModel CreateLaunchesListViewModel()
         {
-            return new LaunchesListViewModel(
+            return LaunchesListViewModel.LoadViewModel(
                 _company,
                 new NavigationService(_navigationStore, CreateAddLaunchViewModel),
                 new NavigationService(_navigationStore, CreateCompanyInfoViewModel));

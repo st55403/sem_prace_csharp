@@ -27,5 +27,15 @@ namespace WpfApp1.Services.LaunchCreators
                 await context.SaveChangesAsync();
             }
         }
+
+        public async Task UpdateLaunch(Launch l)
+        {
+            using (SpaceXDbContext context = spaceXDbContextFactory.CreateDbContext())
+            {
+                LaunchDTO launchDTO = new LaunchDTO() { Details = l.Details, FlightNumber = l.FlightNumber, LaunchDateUtc = l.LaunchDateUtc, LaunchSuccess = l.LaunchSuccess, MissionName = l.MissionName, Upcoming = l.Upcoming };
+                context.Launches.Update(launchDTO);
+                await context.SaveChangesAsync();
+            }
+        }
     }
 }

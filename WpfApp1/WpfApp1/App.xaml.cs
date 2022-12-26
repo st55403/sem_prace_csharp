@@ -17,6 +17,7 @@ using WpfApp1.Services.ShipCreators;
 using WpfApp1.Services.ShipProviders;
 using WpfApp1.Stores;
 using WpfApp1.ViewModels;
+using WpfApp1.Views;
 
 namespace WpfApp1
 {
@@ -84,6 +85,13 @@ namespace WpfApp1
         private AddLaunchViewModel CreateAddLaunchViewModel()
         {
             return new AddLaunchViewModel(
+                _company,
+                new NavigationService(_navigationStore, CreateLaunchesListViewModel));
+        }
+
+        private LaunchDetails CreateLaunchDetailsViewModel()
+        {
+            return new LanuchDetailsViewModel(
                 _company,
                 new NavigationService(_navigationStore, CreateLaunchesListViewModel));
         }

@@ -28,5 +28,10 @@ namespace WpfApp1.Models
         {
             await launchCreator.AddLaunch(launch);
         }
+
+        public async Task UpdateLaunch(Launch launch)
+        {
+            await launchCreator.UpdateLaunch(launch);
+        }
     }
 }

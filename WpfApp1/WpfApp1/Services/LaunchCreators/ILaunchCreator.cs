@@ -10,5 +10,6 @@ namespace WpfApp1.Services.LaunchCreators
     public interface ILaunchCreator
     {
         Task AddLaunch(Launch launch);
+        Task UpdateLaunch(Launch launch);
     }
 }

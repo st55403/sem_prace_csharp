@@ -52,5 +52,10 @@ namespace WpfApp1.Models
         {
             _launchRecords.AddLaunch(launch);
         }
+
+        public async Task UpdateLaunch(Launch launch)
+        {
+            _launchRecords.UpdateLaunch(launch); ;
+        }
     }
 }

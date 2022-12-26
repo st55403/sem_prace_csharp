@@ -17,11 +17,13 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" FontSize="24" Text="All Launches" />
             <Button Grid.Column="2" Content="Add Launch" Command="{Binding AddLaunchCommand}"/>
             <Button Grid.Column="1" Content="Back" Command="{Binding BackCommand}"/>
+            <Button Grid.Column="3" Content="Details" Command="{Binding DetailsLaunchCommand}"/>
         </Grid>
         <ListView Grid.Row="1" Margin="0 25 0 0" ItemsSource="{Binding Launches}">
             <ListView.View>

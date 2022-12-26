@@ -79,7 +79,8 @@ namespace WpfApp1
             return LaunchesListViewModel.LoadViewModel(
                 _company,
                 new NavigationService(_navigationStore, CreateAddLaunchViewModel),
-                new NavigationService(_navigationStore, CreateCompanyInfoViewModel));
+                new NavigationService(_navigationStore, CreateCompanyInfoViewModel),
+                new NavigationService(_navigationStore, CreateLaunchDetailsViewModel));
         }
 
         private AddLaunchViewModel CreateAddLaunchViewModel()
@@ -89,7 +90,7 @@ namespace WpfApp1
                 new NavigationService(_navigationStore, CreateLaunchesListViewModel));
         }
 
-        private LaunchDetails CreateLaunchDetailsViewModel()
+        private LanuchDetailsViewModel CreateLaunchDetailsViewModel()
         {
             return new LanuchDetailsViewModel(
                 _company,

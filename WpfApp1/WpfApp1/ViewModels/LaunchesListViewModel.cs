@@ -19,27 +19,32 @@ namespace WpfApp1.ViewModels
         public IEnumerable<LaunchViewModel> Launches => _launches;
         public ICommand LoadLaunchesCommand { get; }
         public ICommand AddLaunchCommand { get; }
+        public ICommand DetailsLaunchCommand { get; }
         public ICommand BackCommand { get; }
         public LaunchesListViewModel(
             Company company, 
             NavigationService navigationServiceToAddLaunch, 
-            NavigationService navigationServiceToCompanyInfo)
+            NavigationService navigationServiceToCompanyInfo,
+            NavigationService navigationServiceToLaunchDetails)
         {
             _launches = new ObservableCollection<LaunchViewModel>();
             LoadLaunchesCommand = new LoadLaunchesCommand(this, company);
             AddLaunchCommand = new NavigateCommandToAddRocket(navigationServiceToAddLaunch);
             BackCommand = new NavigateCommandToCompanyInfo(navigationServiceToCompanyInfo);
+            DetailsLaunchCommand = new NavigateCommandToLaunchDetails(navigationServiceToLaunchDetails);
         }
 
         public static LaunchesListViewModel LoadViewModel(
             Company company,
             NavigationService navigationServiceToAddLaunch,
-            NavigationService navigationServiceToCompanyInfo)
+            NavigationService navigationServiceToCompanyInfo,
+            NavigationService navigationServiceToLaunchDetails)
         {
             LaunchesListViewModel viewModel = new LaunchesListViewModel(
                 company, 
                 navigationServiceToAddLaunch,
-                navigationServiceToCompanyInfo);
+                navigationServiceToCompanyInfo,
+                navigationServiceToLaunchDetails);
             viewModel.LoadLaunchesCommand.Execute(null);
             return viewModel;
         }

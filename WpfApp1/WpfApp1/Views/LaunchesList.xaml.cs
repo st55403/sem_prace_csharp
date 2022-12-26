@@ -30,7 +30,10 @@ namespace WpfApp1.Views
         private void LaunchesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             LaunchViewModel selectedLaunch = (LaunchViewModel)LaunchesListView.SelectedItem;
-            LaunchSelectedTextBlock.Text = selectedLaunch.FlightNumber.ToString();
+            if (selectedLaunch != null)
+            {
+                LaunchSelectedTextBlock.Text = selectedLaunch.FlightNumber.ToString();
+            }
         }
     }
 }

@@ -133,6 +133,16 @@ namespace WpfApp1.ViewModels
             Company company,
             NavigationService navigationService)
         {
+            // todo remove that and change to recived launch to update not first
+            IEnumerable<Launch> launches = await company.GetAllLaunches();
+            Launch l = launches.First();
+            Details = l.Details;
+            FlightNumber = l.FlightNumber;
+            LaunchDateUtc = l.LaunchDateUtc;
+            launchSuccess = l.LaunchSuccess;
+            MissionName = l.MissionName;
+            Upcoming = l.Upcoming;
+
             UpdateCommand = new UpdateLaunchCommand(this, company, navigationService);
             CancelCommand = new NavigateCommandToLaunchesList(navigationService);
         }

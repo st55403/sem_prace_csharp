@@ -5,8 +5,73 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            FontSize="24"
+            Text="Launch details" />
+        <Grid Grid.Row="1" Margin="0 25 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Details" />
+            <TextBox Grid.Row="1" Margin="0 5 0 0" Text="{Binding Details, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Grid Grid.Row="2" Margin="0 25 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Flight Number" />
+            <TextBox Grid.Row="1" Margin="0 5 0 0" Text="{Binding FlightNumber, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Grid Grid.Row="3" Margin="0 25 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Launch Date" />
+            <TextBox Grid.Row="1" Margin="0 5 0 0" Text="{Binding LaunchDateUtc, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Grid Grid.Row="4" Margin="0 25 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Launch Success" />
+            <TextBox Grid.Row="1" Margin="0 5 0 0" Text="{Binding LaunchSuccess, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Grid Grid.Row="5" Margin="0 25 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Mission Name" />
+            <TextBox Grid.Row="1" Margin="0 5 0 0" Text="{Binding MissionName, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Grid Grid.Row="6" Margin="0 25 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Upcoming" />
+            <TextBox Grid.Row="1" Margin="0 5 0 0" Text="{Binding Upcoming, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <StackPanel Grid.Row="7" Margin="0 25 0 0" Orientation="Horizontal">
+            <Button Content="Update" Command="{Binding UpdateCommand}"/>
+            <Button Content="Cancel" Command="{Binding CancelCommand}" Margin="5 0 0 0"/>
+        </StackPanel>
     </Grid>
 </UserControl>

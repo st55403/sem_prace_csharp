@@ -19,6 +19,9 @@
             <DataTemplate DataType="{x:Type viewModels:AddLaunchViewModel}">
                 <views:AddLaunch />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:LanuchDetailsViewModel}">
+                <views:LaunchDetails />
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewModels:ShipsListViewModel}">
                 <views:ShipsList />
             </DataTemplate>

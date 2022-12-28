@@ -9,6 +9,7 @@ using System.Windows;
 using WpfApp1.DbContexts;
 using WpfApp1.Models;
 using WpfApp1.Services;
+using WpfApp1.Services.API;
 using WpfApp1.Services.LaunchCreators;
 using WpfApp1.Services.LaunchProviders;
 using WpfApp1.Services.RocketCreators;
@@ -48,8 +49,11 @@ namespace WpfApp1
             _navigationStore = new NavigationStore();
         }
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
+            SpaceXService apiService = new SpaceXService();
+            var launches = await apiService.GetAllLaunches();
+
             using (SpaceXDbContext dbContext = _spaceXDbContextFactory.CreateDbContext())
             {
                 dbContext.Database.Migrate();

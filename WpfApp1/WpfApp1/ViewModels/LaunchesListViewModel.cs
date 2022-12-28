@@ -17,6 +17,20 @@ namespace WpfApp1.ViewModels
     {
         private ObservableCollection<LaunchViewModel> _launches;
 
+        private LaunchViewModel _selectedItem;
+        public LaunchViewModel SelectedItem
+        {
+            get
+            {
+                return _selectedItem;
+            }
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChanged(nameof(SelectedItem));
+            }
+        }
+
         public IEnumerable<LaunchViewModel> Launches => _launches;
         public ICommand LoadLaunchesCommand { get; }
         public ICommand AddLaunchCommand { get; }

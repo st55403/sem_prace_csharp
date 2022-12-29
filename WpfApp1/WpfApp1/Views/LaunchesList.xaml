@@ -26,7 +26,10 @@
             <Button Grid.Column="1" Content="Back" Command="{Binding BackCommand}"/>
             <Button Grid.Column="3" Content="Details" Command="{Binding DetailsLaunchCommand}"/>
         </Grid>
-        <ListView Grid.Row="1" x:Name="LaunchesListView" Margin="0 25 0 0" ItemsSource="{Binding Launches}" SelectionChanged="LaunchesListView_SelectionChanged" SelectedItem="{Binding SelectedItem}">
+        <ListView 
+            Grid.Row="1" x:Name="LaunchesListView" Margin="0 25 0 0" ItemsSource="{Binding Launches}"
+            SelectionChanged="LaunchesListView_SelectionChanged" SelectedItem="{Binding SelectedItem}"
+            MaxHeight="400">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Flight Number">

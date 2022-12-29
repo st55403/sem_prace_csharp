@@ -32,7 +32,7 @@ namespace WpfApp1.Views
             LaunchViewModel selectedLaunch = (LaunchViewModel)LaunchesListView.SelectedItem;
             if (selectedLaunch != null)
             {
-                LaunchSelectedTextBlock.Text = selectedLaunch.FlightNumber.ToString();
+                LaunchSelectedTextBlock.Text = selectedLaunch.Details;
             }
         }
     }

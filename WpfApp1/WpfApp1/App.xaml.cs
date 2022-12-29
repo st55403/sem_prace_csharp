@@ -35,6 +35,7 @@ namespace WpfApp1
 
         public App()
         {
+            ISpaceXService spaceXService = new SpaceXService();
             _spaceXDbContextFactory = new SpaceXDbContextFactory(CONNECTION_STRING);
             IRocketProvider rocketProvider = new DatabaseRocketProvider(_spaceXDbContextFactory);
             IRocketCreator rocketCreator = new DatabaseRocketCreator(_spaceXDbContextFactory);
@@ -45,14 +46,15 @@ namespace WpfApp1
             ILaunchProvider launchProvider = new DatabaseLaunchProvider(_spaceXDbContextFactory);
             ILaunchCreator launchCreator = new DatabaseLaunchCreator(_spaceXDbContextFactory);
             LaunchRecords launchRecords = new LaunchRecords(launchProvider, launchCreator);
-            _company = new Company("SpaceX", rocketGarage, shipPort, launchRecords);
+            _company = new Company("SpaceX", rocketGarage, shipPort, launchRecords, spaceXService);
+            _company.FetchDataFromSpaceXServiceAndChachLocally();
             _navigationStore = new NavigationStore();
         }
 
         protected override async void OnStartup(StartupEventArgs e)
         {
-            SpaceXService apiService = new SpaceXService();
-            var launches = await apiService.GetAllLaunches();
+            //SpaceXService apiService = new SpaceXService();
+            //var launches = await apiService.GetAllLaunches();
 
             using (SpaceXDbContext dbContext = _spaceXDbContextFactory.CreateDbContext())
             {

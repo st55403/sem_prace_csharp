@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp1.Services;
+using WpfApp1.Services.API;
 
 namespace WpfApp1.Models
 {
@@ -11,16 +14,18 @@ namespace WpfApp1.Models
         private readonly RocketGarage _rocketGarage;
         private readonly ShipPort _shipPort;
         private readonly LaunchRecords _launchRecords;
+        private readonly SpaceXService _spaceXService;
 
         public string Name { get; }
 
-        public Company(string name, RocketGarage rocketGarage, ShipPort shipPort, LaunchRecords launchRecords)
+        public Company(string name, RocketGarage rocketGarage, ShipPort shipPort, LaunchRecords launchRecords, ISpaceXService spaceXService)
         {
             Name = name;
 
             _rocketGarage = rocketGarage;
             _shipPort = shipPort;
             _launchRecords = launchRecords;
+            _spaceXService = (SpaceXService?)spaceXService;
         }
 
         public async Task<IEnumerable<Rocket>> GetAllRockets()
@@ -56,6 +61,16 @@ namespace WpfApp1.Models
         public async Task UpdateLaunch(Launch launch)
         {
             _launchRecords.UpdateLaunch(launch); ;
+        }
+
+        public async void FetchDataFromSpaceXServiceAndChachLocally()
+        {
+            var launches = await _spaceXService.GetAllLaunches();
+            foreach (var launch in launches)
+            {
+                Trace.WriteLine(launch.ToString());
+                _launchRecords.AddLaunch(launch);
+            }
         }
     }
 }

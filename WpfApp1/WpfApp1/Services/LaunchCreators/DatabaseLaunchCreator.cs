@@ -22,7 +22,7 @@ namespace WpfApp1.Services.LaunchCreators
         {
             using (SpaceXDbContext context = spaceXDbContextFactory.CreateDbContext())
             {
-                LaunchDTO launchDTO = new LaunchDTO() { Details = l.Details , FlightNumber = l.FlightNumber, LaunchDateUtc = l.LaunchDateUtc, LaunchSuccess = l.LaunchSuccess, MissionName = l.MissionName, Upcoming = l.Upcoming};
+                LaunchDTO launchDTO = new LaunchDTO() { Details = l.Details , FlightNumberId = l.FlightNumber, LaunchDateUtc = l.LaunchDateUtc, LaunchSuccess = l.LaunchSuccess, MissionName = l.MissionName, Upcoming = l.Upcoming};
                 context.Launches.Add(launchDTO);
                 await context.SaveChangesAsync();
             }
@@ -32,7 +32,7 @@ namespace WpfApp1.Services.LaunchCreators
         {
             using (SpaceXDbContext context = spaceXDbContextFactory.CreateDbContext())
             {
-                LaunchDTO launchDTO = new LaunchDTO() { Details = l.Details, FlightNumber = l.FlightNumber, LaunchDateUtc = l.LaunchDateUtc, LaunchSuccess = l.LaunchSuccess, MissionName = l.MissionName, Upcoming = l.Upcoming };
+                LaunchDTO launchDTO = new LaunchDTO() { Details = l.Details, FlightNumberId = l.FlightNumber, LaunchDateUtc = l.LaunchDateUtc, LaunchSuccess = l.LaunchSuccess, MissionName = l.MissionName, Upcoming = l.Upcoming };
                 context.Launches.Update(launchDTO);
                 await context.SaveChangesAsync();
             }

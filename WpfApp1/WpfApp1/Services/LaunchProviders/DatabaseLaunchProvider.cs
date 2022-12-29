@@ -24,7 +24,7 @@ namespace WpfApp1.Services.LaunchProviders
             using (SpaceXDbContext context = spaceXDbContextFactory.CreateDbContext())
             {
                 IEnumerable<LaunchDTO> launchDTO = await context.Launches.ToListAsync();
-                return launchDTO.Select(l => new Launch(l.Details, l.FlightNumber, l.LaunchDateUtc, l.LaunchSuccess, l.MissionName, l.Upcoming));
+                return launchDTO.Select(l => new Launch(l.Details, l.FlightNumberId, l.LaunchDateUtc, l.LaunchSuccess, l.MissionName, l.Upcoming));
             }
         }
     }

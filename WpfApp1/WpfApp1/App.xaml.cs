@@ -53,11 +53,10 @@ namespace WpfApp1
 
         protected override async void OnStartup(StartupEventArgs e)
         {
-            //SpaceXService apiService = new SpaceXService();
-            //var launches = await apiService.GetAllLaunches();
-
             using (SpaceXDbContext dbContext = _spaceXDbContextFactory.CreateDbContext())
             {
+                //dbContext.Database.EnsureDeleted();
+                //dbContext.Database.EnsureCreated();
                 dbContext.Database.Migrate();
             }
             //_navigationStore.CurrentViewModel = CreateRocketListViewModel();

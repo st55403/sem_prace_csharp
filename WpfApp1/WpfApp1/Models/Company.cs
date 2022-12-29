@@ -69,7 +69,19 @@ namespace WpfApp1.Models
             foreach (var launch in launches)
             {
                 Trace.WriteLine(launch.ToString());
-                _launchRecords.AddLaunch(launch);
+                _rocketGarage.AddRocket(new Rocket(
+                    launch.rocket_name,
+                    launch.rocket_id,
+                    new Engine(1, launch.rocket_type)
+                    ));
+                _launchRecords.AddLaunch(new Launch(
+                    launch.details,
+                    launch.flight_number.ToString(),
+                    launch.launch_date_utc,
+                    launch.launch_success.ToString(),
+                    launch.mission_name,
+                    launch.upcoming.ToString()
+                    ));
             }
         }
     }

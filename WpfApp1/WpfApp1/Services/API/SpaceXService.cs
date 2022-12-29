@@ -12,7 +12,7 @@ namespace WpfApp1.Services.API
 {
     public class SpaceXService : ISpaceXService
     {
-        public async Task<IEnumerable<Launch>> GetAllLaunches()
+        public async Task<IEnumerable<ParsedLaunch>> GetAllLaunches()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -22,14 +22,18 @@ namespace WpfApp1.Services.API
 
                 List<APILaunch> apiLaunches = JsonSerializer.Deserialize<List<APILaunch>>(jsonResponse);
 
-                return apiLaunches.Select(apiLaunch => new Launch(
-                    apiLaunch.details,
-                    apiLaunch.flight_number.ToString(),
-                    apiLaunch.launch_date_utc,
-                    apiLaunch.launch_success.ToString(),
-                    apiLaunch.mission_name,
-                    apiLaunch.upcoming.ToString()
-                    ));
+                return apiLaunches.Select(apiLaunch => new ParsedLaunch()
+                {
+                    flight_number= apiLaunch.flight_number,
+                    mission_name= apiLaunch.mission_name,
+                    upcoming= apiLaunch.upcoming,
+                    launch_date_utc= apiLaunch.launch_date_utc,
+                    launch_success= apiLaunch.launch_success,
+                    details= apiLaunch.details,
+                    rocket_id= apiLaunch.rocket.rocket_id,
+                    rocket_name= apiLaunch.rocket.rocket_name,
+                    rocket_type= apiLaunch.rocket.rocket_type
+                });
             }
         }
     }

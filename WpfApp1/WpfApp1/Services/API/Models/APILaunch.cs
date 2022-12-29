@@ -15,7 +15,13 @@ namespace WpfApp1.Services.API.Models
         public string launch_date_utc { get; set; }
         public bool? launch_success { get; set; }
         public string details { get; set; }
+        public Rocket rocket { get; set; }
+    }
 
-        // todo add here other prop such as rockets and ships
+    public class Rocket
+    {
+        public string rocket_id { get; set; }
+        public string rocket_name { get; set; }
+        public string rocket_type { get; set; }
     }
 }

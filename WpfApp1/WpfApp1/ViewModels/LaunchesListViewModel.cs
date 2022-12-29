@@ -74,7 +74,8 @@ namespace WpfApp1.ViewModels
         {
             if (obj is LaunchViewModel launchViewModel)
             {
-                return launchViewModel.MissionName.Contains(LaunchesFilter, StringComparison.InvariantCultureIgnoreCase);
+                return launchViewModel.MissionName.Contains(LaunchesFilter, StringComparison.InvariantCultureIgnoreCase) ||
+                    launchViewModel.LaunchSuccess.Contains(LaunchesFilter, StringComparison.CurrentCultureIgnoreCase);
             }
 
             return false;

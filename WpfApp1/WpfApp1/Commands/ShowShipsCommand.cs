@@ -11,14 +11,10 @@ namespace WpfApp1.Commands
 {
     class ShowShipsCommand : CommandBase
     {
-        //private CompanyInfoViewModel companyInfoViewModel;
-        //private Company company;
         private NavigationService navigationService;
 
         public ShowShipsCommand(CompanyInfoViewModel companyInfoViewModel, Company company, NavigationService navigationService)
         {
-            //this.companyInfoViewModel = companyInfoViewModel;
-            //this.company = company;
             this.navigationService = navigationService;
         }
 

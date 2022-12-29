@@ -11,6 +11,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <TextBlock
@@ -43,5 +44,10 @@
                 Command="{Binding ShipsCommand}"
                 Margin="10 0 0 0" />
         </StackPanel>
+        <Button
+            Grid.Row="3"
+            Content="Fetch data from API to SQLite =)"
+            Command="{Binding FetchData}"
+            Margin="100 250 100 10"/>
     </Grid>
 </UserControl>

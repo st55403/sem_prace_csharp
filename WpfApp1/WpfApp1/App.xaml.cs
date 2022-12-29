@@ -47,7 +47,7 @@ namespace WpfApp1
             ILaunchCreator launchCreator = new DatabaseLaunchCreator(_spaceXDbContextFactory);
             LaunchRecords launchRecords = new LaunchRecords(launchProvider, launchCreator);
             _company = new Company("SpaceX", rocketGarage, shipPort, launchRecords, spaceXService);
-            _company.FetchDataFromSpaceXServiceAndChachLocally();
+            //_company.FetchDataFromSpaceXServiceAndChachLocally();
             _navigationStore = new NavigationStore();
         }
 

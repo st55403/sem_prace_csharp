@@ -11,6 +11,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -26,8 +27,9 @@
             <Button Grid.Column="1" Content="Back" Command="{Binding BackCommand}"/>
             <Button Grid.Column="3" Content="Details" Command="{Binding DetailsLaunchCommand}"/>
         </Grid>
+        <TextBox Grid.Row="1" Text="{Binding LaunchesFilter, UpdateSourceTrigger=PropertyChanged}" Margin="10"/>
         <ListView 
-            Grid.Row="1" x:Name="LaunchesListView" Margin="0 25 0 0" ItemsSource="{Binding Launches}"
+            Grid.Row="2" x:Name="LaunchesListView" Margin="0 25 0 0" ItemsSource="{Binding LaunchesCollectionView}"
             SelectionChanged="LaunchesListView_SelectionChanged" SelectedItem="{Binding SelectedItem}"
             MaxHeight="400">
             <ListView.View>
@@ -70,7 +72,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <TextBlock x:Name="LaunchSelectedTextBlock" />
         </Grid>
     </Grid>

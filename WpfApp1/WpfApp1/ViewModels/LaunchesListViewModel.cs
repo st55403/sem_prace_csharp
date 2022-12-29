@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using WpfApp1.Commands;
 using WpfApp1.Models;
@@ -31,6 +33,22 @@ namespace WpfApp1.ViewModels
             }
         }
 
+        public ICollectionView LaunchesCollectionView { get; }
+        private string _launchesFilter = string.Empty;
+        public string LaunchesFilter
+        {
+            get
+            {
+                return _launchesFilter;
+            }
+            set
+            {
+                _launchesFilter = value;
+                OnPropertyChanged(nameof(LaunchesFilter));
+                LaunchesCollectionView.Refresh();
+            }
+        }
+
         public IEnumerable<LaunchViewModel> Launches => _launches;
         public ICommand LoadLaunchesCommand { get; }
         public ICommand AddLaunchCommand { get; }
@@ -43,10 +61,23 @@ namespace WpfApp1.ViewModels
             NavigationService navigationServiceToLaunchDetails)
         {
             _launches = new ObservableCollection<LaunchViewModel>();
+            LaunchesCollectionView = CollectionViewSource.GetDefaultView(_launches);
+
+            LaunchesCollectionView.Filter = FilterLaunches;
             LoadLaunchesCommand = new LoadLaunchesCommand(this, company);
             AddLaunchCommand = new NavigateCommandToAddRocket(navigationServiceToAddLaunch);
             BackCommand = new NavigateCommandToCompanyInfo(navigationServiceToCompanyInfo);
             DetailsLaunchCommand = new NavigateCommandToLaunchDetails(navigationServiceToLaunchDetails);
+        }
+
+        private bool FilterLaunches(object obj)
+        {
+            if (obj is LaunchViewModel launchViewModel)
+            {
+                return launchViewModel.MissionName.Contains(LaunchesFilter, StringComparison.InvariantCultureIgnoreCase);
+            }
+
+            return false;
         }
 
         public static LaunchesListViewModel LoadViewModel(

@@ -28,6 +28,20 @@ namespace WpfApp1.Services.LaunchCreators
             }
         }
 
+        public async Task AddLaunchShip(LaunchShip launchShip)
+        {
+            using (SpaceXDbContext context = spaceXDbContextFactory.CreateDbContext())
+            {
+                LaunchShipDTO launchShipDTO = new LaunchShipDTO() 
+                {
+                    ShipId = launchShip.ShipId,
+                    FlightNumber =  launchShip.FlightNumber,
+                };
+                context.LaunchToShip.Add(launchShipDTO);
+                await context.SaveChangesAsync();
+            }
+        }
+
         public async Task UpdateLaunch(Launch l)
         {
             using (SpaceXDbContext context = spaceXDbContextFactory.CreateDbContext())

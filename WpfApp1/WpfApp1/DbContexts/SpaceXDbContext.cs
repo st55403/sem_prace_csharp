@@ -20,5 +20,7 @@ namespace WpfApp1.DbContexts
         public DbSet<ShipDTO> Ships { get; set; }
 
         public DbSet<LaunchDTO> Launches { get; set; }
+
+        public DbSet<LaunchShipDTO> LaunchToShip { get; set; }
     }
 }

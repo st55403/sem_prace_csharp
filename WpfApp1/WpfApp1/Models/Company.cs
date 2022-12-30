@@ -68,7 +68,7 @@ namespace WpfApp1.Models
             var launches = await _spaceXService.GetAllLaunches();
             foreach (var launch in launches)
             {
-                Trace.WriteLine(launch.ToString());
+                //Trace.WriteLine(launch.ToString());
                 _rocketGarage.AddRocket(new Rocket(
                     launch.rocket_name,
                     launch.rocket_id,
@@ -87,7 +87,16 @@ namespace WpfApp1.Models
             var ships = await _spaceXService.GetAllShips();
             foreach (var ship in ships)
             {
-                Trace.WriteLine(ship.ToString());
+                foreach (var mission in ship.missions)
+                {
+                    Trace.WriteLine(mission.flight + " lol " + ship.ship_id);
+                    _launchRecords.AddLaunchShipRelation(new LaunchShip()
+                    {
+                        ShipId = ship.ship_id,
+                        FlightNumber = mission.flight.ToString(),
+                    });
+                }
+                //Trace.WriteLine(ship.ToString());
                 var shipMissionName = "";
                 if (ship.missions.Count > 0)
                 {

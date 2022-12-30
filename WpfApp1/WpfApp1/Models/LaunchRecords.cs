@@ -33,5 +33,10 @@ namespace WpfApp1.Models
         {
             await launchCreator.UpdateLaunch(launch);
         }
+
+        public async Task AddLaunchShipRelation(LaunchShip launchShip)
+        {
+            await launchCreator.AddLaunchShip(launchShip);
+        }
     }
 }

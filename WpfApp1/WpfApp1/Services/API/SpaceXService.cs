@@ -36,5 +36,26 @@ namespace WpfApp1.Services.API
                 });
             }
         }
+
+        public async Task<IEnumerable<ParsedShip>> GetAllShips()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string uri = "https://api.spacexdata.com/v3/ships";
+                HttpResponseMessage apiResponse = await client.GetAsync(uri);
+                string jsonResponse = await apiResponse.Content.ReadAsStringAsync();
+
+                List<APIShip> apiShips = JsonSerializer.Deserialize<List<APIShip>>(jsonResponse);
+
+                return apiShips.Select(apiShip => new ParsedShip() 
+                {
+                    ship_id= apiShip.ship_id,
+                    home_port= apiShip.home_port,
+                    year_built= apiShip.year_built,
+                    status= apiShip.status,
+                    missions = apiShip.missions
+                });
+            }
+        }
     }
 }

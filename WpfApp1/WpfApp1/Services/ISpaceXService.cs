@@ -11,5 +11,6 @@ namespace WpfApp1.Services
     public interface ISpaceXService
     {
         Task<IEnumerable<ParsedLaunch>> GetAllLaunches();
+        Task<IEnumerable<ParsedShip>> GetAllShips();
     }
 }

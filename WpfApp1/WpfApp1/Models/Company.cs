@@ -83,6 +83,27 @@ namespace WpfApp1.Models
                     launch.upcoming.ToString()
                     ));
             }
+
+            var ships = await _spaceXService.GetAllShips();
+            foreach (var ship in ships)
+            {
+                Trace.WriteLine(ship.ToString());
+                var shipMissionName = "";
+                if (ship.missions.Count > 0)
+                {
+                    shipMissionName = ship.missions.First().name;
+                } else
+                {
+                    shipMissionName = "";
+                }
+                _shipPort.AddShip(new Ship(
+                    ship.ship_id.ToString(),
+                    ship.home_port,
+                    ship.year_built.ToString(),
+                    ship.status,
+                    shipMissionName
+                    ));
+            }
         }
     }
 }

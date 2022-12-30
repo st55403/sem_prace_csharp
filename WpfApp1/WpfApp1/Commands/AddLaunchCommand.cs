@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel;
 using System.Threading.Tasks;
 using WpfApp1.Models;
 using WpfApp1.Services;
@@ -54,7 +50,13 @@ namespace WpfApp1.Commands
 
         public override async Task ExecuteAsync(object parameter)
         {
-            Launch launch = new Launch(addLaunchViewModel.Details, addLaunchViewModel.FlightNumber, addLaunchViewModel.LaunchDateUtc, addLaunchViewModel.LaunchSuccess, addLaunchViewModel.MissionName, addLaunchViewModel.Upcoming);
+            Launch launch = new Launch
+                (addLaunchViewModel.Details,
+                addLaunchViewModel.FlightNumber,
+                addLaunchViewModel.LaunchDateUtc,
+                addLaunchViewModel.LaunchSuccess,
+                addLaunchViewModel.MissionName,
+                addLaunchViewModel.Upcoming);
             await company.AddLaunch(launch);
             navigationServiceToLaunchesList.Navigate();
         }

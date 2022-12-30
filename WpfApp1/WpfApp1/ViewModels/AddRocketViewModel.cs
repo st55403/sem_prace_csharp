@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using WpfApp1.Commands;
 using WpfApp1.Models;
 using WpfApp1.Services;
-using WpfApp1.Stores;
 
 namespace WpfApp1.ViewModels
 {

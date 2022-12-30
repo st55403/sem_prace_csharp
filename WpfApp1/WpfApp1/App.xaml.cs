@@ -1,10 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using WpfApp1.DbContexts;
 using WpfApp1.Models;
@@ -18,7 +12,6 @@ using WpfApp1.Services.ShipCreators;
 using WpfApp1.Services.ShipProviders;
 using WpfApp1.Stores;
 using WpfApp1.ViewModels;
-using WpfApp1.Views;
 
 namespace WpfApp1
 {

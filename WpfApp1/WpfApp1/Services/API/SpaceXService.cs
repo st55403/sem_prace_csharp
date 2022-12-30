@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using WpfApp1.Models;
 using WpfApp1.Services.API.Models;
 
 namespace WpfApp1.Services.API

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WpfApp1.Models
+﻿namespace WpfApp1.Models
 {
-   public class Ship
+    public class Ship
     {
         public string ShipId { get; set; }
         public string HomePort { get; set; }

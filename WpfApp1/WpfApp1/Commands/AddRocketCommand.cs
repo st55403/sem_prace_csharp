@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel;
 using System.Threading.Tasks;
-using System.Windows.Xps;
 using WpfApp1.Models;
 using WpfApp1.Services;
 using WpfApp1.ViewModels;
